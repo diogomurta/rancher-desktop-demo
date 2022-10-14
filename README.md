@@ -81,5 +81,5 @@ curl rancher-hello-world.$IP.nip.io
 
 ## To delete
 ```bash
-kubectl delete all,ingress --all -n demo
+kubectl delete all,ingress --all -n demo-rancher
 ```
