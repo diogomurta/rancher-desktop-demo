@@ -2,13 +2,18 @@
 
 
 ## To get the Node IP
-
+```bash
 NODENAME=$(kubectl get nodes  -o json | jq -r '.items[].metadata.name')
-
+```
+```bash
 IP=$(kubectl get node/$NODENAME -o json | jq -r '.status.addresses[] | select(.type=="InternalIP").address')
-
+```
 ## To create a namespace and install a `rancher-hello-world` example
+```bash
 kubectl create ns demo-rancher
+```
+
+```bash
 cat << EOF | kubectl apply -n demo-rancher -f -
 ---
 apiVersion: apps/v1
@@ -63,15 +68,18 @@ spec:
                 port:
                   number: 80 
 EOF
-
+```
 ## echo it
-
+```bash
 echo rancher-hello-world.$IP.nip.io
-
+```
 ## Curl it 
+```bash
 curl rancher-hello-world.$IP.nip.io
-
+```
 
 
 ## To delete
+```bash
 kubectl delete all,ingress --all -n demo
+```
