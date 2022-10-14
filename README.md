@@ -23,7 +23,7 @@ metadata:
     app: rancher-hello-world
   name: rancher-hello-world
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: rancher-hello-world
